@@ -1,0 +1,11 @@
+test.html
+*.pyc
+*~
+tmp/
+__pycache__
+db.sqlite3
+*.DS_Store
+contact/settings_secret.py
+staticfiles/
+migrations/
+.htaccess
