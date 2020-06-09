@@ -16,11 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path, re_path
 from django.views.generic import TemplateView
-from website.forms import LoginForm
 from django.contrib.auth.views import login, logout
-from .staticserve import serve
+# from .staticserve import serve
 
 urlpatterns = [
-    path('', include('contact.urls')),    
+    path('', include('main.urls')),    
     path('admin/', admin.site.urls),
+    # re_path(r'^static/(?P<path>.*)$', serve),    
 ]
