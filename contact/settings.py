@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from .settings_secret import * # for sensitive information
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,12 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'i$2bxwjnqt@lkwf7l+k961l$@$p9!u2o25-ont+a1%g&29t^6@'
+#SECRET_KEY = '' # in settings_secret.py
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True # in settings_secret
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ohhscontact.dreamhosters.com','127.0.0.1']
 
 
 # Application definition
@@ -37,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    'crispy_forms',
+    'templatetag_handlebars',    
+    'bootstrapform',
+    'main',    
 ]
 
 MIDDLEWARE = [
@@ -49,23 +56,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'contact.urls'
+#ROOT_URLCONF = '' # in settings_secret
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
+# TEMPLATES = [ # in settings_secret
+ 
+# ]
 
 WSGI_APPLICATION = 'contact.wsgi.application'
 
@@ -73,12 +68,7 @@ WSGI_APPLICATION = 'contact.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+#DATABASES = {} # in settings_secret
 
 
 # Password validation
@@ -116,6 +106,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+# in settings_secret
+#STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.dirname(BASE_DIR) + '/public/static/'
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.dirname(BASE_DIR) + '/public/static'
+
+EMAIL_HOST = 'smtp.gmail.com'  # since you are using a gmail account
+EMAIL_PORT = 587  # Gmail SMTP port for TLS
+EMAIL_USE_TLS = True    

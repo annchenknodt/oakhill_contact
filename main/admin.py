@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Contact,Unsubscribe
 
-# Register your models here.
+admin.site.register(Unsubscribe)
+admin.site.register(Contact)
+
