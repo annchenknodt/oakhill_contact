@@ -1,6 +1,11 @@
 {% extends "base_generic.html" %}
 
-{% block google_ads_tracker %}gtag('config', 'AW-395237405');{% endblock %}
+{% block google_ads_tracker %}
+<!-- Event snippet for Submit lead form conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-395237405/vrtCCI7XoJICEJ2wu7wB'});
+</script>
+{% endblock %}
 
 {% block content %}
 
